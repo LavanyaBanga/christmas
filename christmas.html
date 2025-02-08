@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Card</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0; /* Light background for better visibility */
+           6 overflow: hidden;
+        }
+
+        /* Background Image */
+        .background-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index:-1;
+        }
+
+        /* Bright Light Effect on Sides */
+        body::before, body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 15%;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+            z-index: 1;
+        }
+
+        body::before {
+            left: 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        body::after {
+            right: 0;
+            border-radius: 10px 0 0 10px;
+        }
+
+        /* Snowflakes Animation */
+        .snowflakes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .snowflake {
+            position: absolute;
+            font-size: 25px;
+            color: rgba(255, 255, 255, 0.8);
+            animation: snowfall 8s linear infinite;
+        }
+
+        @keyframes snowfall {
+            0% {
+                transform: translateY(-10px) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        /* Christmas Tree Styles */
+        .tree {
+            position: absolute;
+            bottom: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 130px solid #3d7d3d;
+            animation: treeGrow 2s ease-in-out infinite alternate;
+        }
+
+        .tree:before {
+            content: '';
+            position: absolute;
+            top: 110px;
+            left: 30px;
+            width: 60px;
+            height: 35px;
+            background-color: #8b5e3c;
+            border-radius: 5px;
+        }
+
+        @keyframes treeGrow {
+            0% {
+                transform: translateX(-50%) scale(1);
+            }
+            100% {
+                transform: translateX(-50%) scale(1.1);
+            }
+        }
+
+        /* Christmas Card */
+        .card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 2;
+            width: 400px;
+            animation: cardFadeIn 2s ease-out;
+            border: 4px solid transparent;
+            border-image-source: linear-gradient(45deg, #ffe66d, #ffe66d,#ffe66d , #ffe66d, #ffe66d);
+            border-image-slice: 1;
+            border-image-repeat: round;
+            box-shadow: 0 0 30px 10px rgba(255, 215, 0, 0.8);
+        }
+
+        @keyframes cardFadeIn {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+        }
+
+        h1 {
+            color: rgb(225, 0, 0);
+            font-size: 3.5em;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 6px rgb(221, 225, 215);
+        }
+
+        p {
+            color: #444;
+            font-size: 1.2em;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .footer {
+            color: #555;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+
+        .button {
+            background-color: #ff2d55;
+            padding: 18px 35px;
+            border-radius: 25px;
+            color: white;
+            font-size: 1.3em;
+            text-decoration: none;
+            margin-top: 25px;
+            display: inline-block;
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 10px rgba(255, 45, 85, 0.6);
+        }
+
+        .button:hover {
+            background-color: #ff1744;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 23, 68, 0.8);
+        }
+
+        .button:active {
+            transform: scale(1);
+        }
+        audio {
+            margin-bottom: 20px; /* Add spacing from the bottom */
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Image -->
+    <img src="front-yard-Christmas.webp" alt="Christmas Background" class="background-img">
+
+    <!-- Snowflakes falling -->
+    <div class="snowflakes">
+        <div class="snowflake" style="left: 5%; animation-duration: 12s; animation-delay: 0s;">❄</div>
+        <div class="snowflake" style="left: 25%; animation-duration: 10s; animation-delay: 2s;">❄</div>
+        <div class="snowflake" style="left: 50%; animation-duration: 15s; animation-delay: 4s;">❄</div>
+        <div class="snowflake" style="left: 70%; animation-duration: 13s; animation-delay: 3s;">❄</div>
+        <div class="snowflake" style="left: 90%; animation-duration: 11s; animation-delay: 1s;">❄</div>
+    </div>
+
+    <!-- Christmas Card -->
+    <div class="card">
+        <h1><i>Merry Christmas!</i></h1>
+        <p><i>May this season bring you warmth, joy, and beautiful moments with your loved ones. Let's cherish the festive spirit!</i></p>
+        <p class="footer">With love, <br>Your Friend</p>
+        <a href="#" class="button">Send a Christmas Wish</a>
+    </div>
+
+    <audio id="audioPlayer" controls loop>
+        <source src="christmas-dreams-jingle-bells-268299.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    
+    
+    
+    
+    
+    
+    
+</body>
+</html>
